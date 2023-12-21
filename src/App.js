@@ -85,7 +85,7 @@ class App extends Component {
   onPictureSubmit = () => {
     this.setState({imageUrl: this.state.input});
 
-    fetch('http://localhost:3000/imageurl', {
+    fetch('https://smart-brain-server-wdaz.onrender.com/imageurl', {
       method: 'post',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
@@ -96,7 +96,7 @@ class App extends Component {
       .then(result => {
         const parsedData = JSON.parse(result);
         if(parsedData.status.description === "Ok"){
-          fetch('http://localhost:3000/image', {
+          fetch('https://smart-brain-server-wdaz.onrender.com/image', {
             method: 'put',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
